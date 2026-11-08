@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>100 Reasons Why I Love My C.P</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --blue:#89BBFE;--blue-deep:#3F74BE;--blue-soft:#DCEBFF;--bg1:#F4F9FF;--bg2:#D6E8FF;
+  --card:rgba(255,255,255,.78);--text:#1F3A63;--muted:#4F6C99;--heart:#FF8FB1;--shadow:rgba(63,116,190,.22);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg1:#0F1B2E;--bg2:#1A2E4D;--card:rgba(30,50,82,.75);--text:#EAF3FF;--muted:#A9C6EE;--blue-soft:#25406B;--blue-deep:#9CC8FF;--shadow:rgba(0,0,0,.4)}
+}
+:root[data-theme="dark"]{--bg1:#0F1B2E;--bg2:#1A2E4D;--card:rgba(30,50,82,.75);--text:#EAF3FF;--muted:#A9C6EE;--blue-soft:#25406B;--blue-deep:#9CC8FF;--shadow:rgba(0,0,0,.4)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Quicksand',system-ui,sans-serif;color:var(--text);background:linear-gradient(160deg,var(--bg1),var(--bg2)) fixed;min-height:100vh;overflow-x:hidden}
+.script{font-family:'Dancing Script','Brush Script MT',cursive}
+#hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.fl{position:absolute;bottom:-40px;opacity:.0;animation:rise linear forwards;color:var(--blue)}
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}15%{opacity:.55}100%{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+section,header{position:relative;z-index:1}
+/* intro */
+#intro{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 22px}
+#intro .big{font-size:clamp(46px,11vw,96px);line-height:1.05;margin:0;color:var(--blue-deep)}
+#intro .sub{font-size:clamp(16px,3.5vw,20px);max-width:520px;margin:18px auto;color:var(--muted);line-height:1.6}
+.badge{display:inline-block;background:var(--blue);color:#0F2A52;font-weight:600;padding:6px 16px;border-radius:99px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px}
+.btn{border:0;cursor:pointer;font:600 17px 'Quicksand',sans-serif;background:var(--blue);color:#0F2A52;padding:15px 34px;border-radius:99px;box-shadow:0 10px 26px var(--shadow);transition:transform .2s}
+.btn:hover{transform:translateY(-3px) scale(1.03)}
+.pulse{animation:beat 1.6s infinite;display:inline-block}
+@keyframes beat{0%,100%{transform:scale(1)}30%{transform:scale(1.25)}60%{transform:scale(1)}}
+#main{display:none}
+/* progress */
+#bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);backdrop-filter:blur(10px);padding:10px 18px 12px;display:flex;align-items:center;gap:14px;box-shadow:0 4px 18px var(--shadow)}
+#bar span{font-weight:600;font-size:14px;white-space:nowrap;color:var(--blue-deep)}
+#track{flex:1;height:8px;border-radius:9px;background:var(--blue-soft);overflow:hidden}
+#fill{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--heart));border-radius:9px;transition:width .3s}
+.wrap{max-width:900px;margin:0 auto;padding:38px 18px 20px}
+.title{text-align:center;font-size:clamp(30px,7vw,48px);color:var(--blue-deep);margin:0 0 6px}
+.note{text-align:center;color:var(--muted);margin:0 0 34px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.card{position:relative;background:var(--card);backdrop-filter:blur(8px);border-radius:22px;padding:26px 22px 20px;box-shadow:0 10px 28px var(--shadow);border:1px solid rgba(137,187,254,.45);opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.card.in{opacity:1;transform:none}
+.card:hover{box-shadow:0 14px 34px var(--shadow)}
+.num{position:absolute;top:-14px;left:18px;width:42px;height:42px;border-radius:50%;background:var(--blue);color:#0F2A52;display:grid;place-items:center;font-weight:700;font-size:16px;box-shadow:0 4px 12px var(--shadow)}
+.card p{margin:10px 0 8px;line-height:1.7;font-size:16px}
+.like{background:none;border:0;cursor:pointer;font-size:22px;color:var(--blue);float:right;transition:transform .2s}
+.like.on{color:var(--heart);transform:scale(1.2)}
+.like:active{transform:scale(1.5)}
+.card.big{grid-column:1/-1;text-align:center;background:linear-gradient(135deg,var(--blue),#B9D8FF);color:#0F2A52}
+.card.big p{font-family:'Dancing Script',cursive;font-size:clamp(24px,5.5vw,34px);line-height:1.4}
+.card.big .num{background:#fff;color:var(--blue-deep)}
+/* finale */
+#final{text-align:center;padding:60px 22px 90px}
+#final h2{font-size:clamp(36px,9vw,66px);margin:0 0 12px;color:var(--blue-deep)}
+#final p{max-width:520px;margin:0 auto 26px;color:var(--muted);line-height:1.7;font-size:18px}
+#count{margin-top:18px;font-weight:600;color:var(--blue-deep)}
+.pop{position:fixed;pointer-events:none;z-index:20;font-size:24px;animation:pop 1.4s ease-out forwards}
+@keyframes pop{to{transform:translate(var(--dx),var(--dy)) scale(1.4);opacity:0}}
+#theme{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9;width:44px;height:44px;border-radius:50%;border:0;background:var(--blue);cursor:pointer;font-size:20px;box-shadow:0 6px 16px var(--shadow)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="hearts"></div>
+<button id="theme" aria-label="Toggle light or dark">🌙</button>
+
+<header id="intro">
+  <div class="badge">Read alone</div>
+  <h1 class="big script">100 Reasons Why I Love My C.P</h1>
+  <p class="sub">Completely handwritten, and no AI got near this piece. AI no reach. Just a pinch of the many reasons why I love you, <b>Adewunmi Adejumo</b>.</p>
+  <button class="btn" id="open">Open <span class="pulse">♡</span></button>
+</header>
+
+<main id="main">
+  <div id="bar"><span id="pc">0 / 100</span><div id="track"><div id="fill"></div></div></div>
+  <section class="wrap">
+    <h2 class="title script">Why I love you, Wunmi</h2>
+    <p class="note">Tap the heart on the ones that make you smile ♡</p>
+    <div class="grid" id="grid"></div>
+  </section>
+  <section id="final">
+    <h2 class="script">Happy 6 months, my C.P</h2>
+    <p>I love your C.P. Cheers to 6 months, and to every month after.</p>
+    <button class="btn" id="burst">Send you some love 💙</button>
+    <div id="count"></div>
+  </section>
+</main>
+
+<script>
+const R=[
+"I love your name, Adewunmi. It is so attractive and beautiful. I do not only desire you, I also desire to crown you with more than “This is my girlfriend”, for you are such a sweet girl.",
+"I love your voice. That is the voice of an angel in disguise, that is why your name starts with an “A”. You think you can fool me, abi!!!",
+"I love your brown eyes, damn… those eyes. When I look at you, it’s as though you stare into my soul and compel me to want you more, to share everything with you, and I happily and willingly do so. Your eyes are like a mirror: I do not only see my reflection, I see you with me.",
+"I love the way you walk, you bouncer. No wonder that ************************** bounces the way it does, walking while working it. After, you will say “I don’t know oh”. Oh yes you do!",
+"I love your hands. For someone with soft hands, yours are quite the opposite, not so soft, but I have grown to love them. Your hands tell a story: despite the trials and stress you had to go through, you persevered, my wonder woman, my strong babe. I am proud of the person you are and will be in the coming years.",
+"I love your skin. Your skin glows in the sun. Black is gold? Nah… “Black is You”.",
+"I love your eyelashes, so curly. I would not have been surprised if you blinked and pixie dust fell, cause damnnnnn.",
+"I love your assss, so soft, giggly. Rema knows what I am talking about.",
+"I love how clean you are, omo I love it so so much. That’s why you get to enjoy so much ***************, cause you clean asffffff.",
+"I love how organized you are. Well, I am not surprised: for an angel of your status, I bet you were very close to God.",
+"I love the fact that you are not nonchalant. I am very chalant oh, and nonchalant is for non-living things, not me. That’s why when something is not working, you act like you don’t care as much, with the hope that it will work.",
+"I love how eager you are to learn and grow. You do not like staying at a level, always advancing. I love that.",
+"I love it when you try to please me. You don’t stop trying and neither will I.",
+"I love it when you cook for me. It’s something I love so much. Your cooking is great babe, arigato!!",
+"I love how understanding you are. I love how you can relate with me when situations happen.",
+"I love how you contribute when I talk to you. I can have conversations with you and it feels so good, cause you are smart in so many ways. “My type, sabi girllllll”.",
+"I love the fact that you are not toxic or aggressive. Being with you and not being scared that I might get injured sure is great!",
+"I love how optimistic you can be. Not that I am pessimistic… you just have faith when the facts say otherwise. I really love that and I am slowly adapting to it.",
+"I love how caring you are towards me. You are my sweet girl.",
+"I love the fact that my friends like you.",
+"I love the fact that my family likes you.",
+"I love your values. They are tested values that have stood the test of time and trials.",
+"I love the way you talk to me. It can be sexy, strict, funny, depending on the situation. You mind your words as best as you can.",
+"I love your music taste. It can be versatile and I love it.",
+"I love your cooking. You make some really nice meals. I mean if they are this good now, I can’t imagine how they will be in the future. Ahhhhhh my taste buds.",
+"I love how you taste. Just another reminder to not always listen to people, especially the ones with no experienceeee.",
+"I love the way your body reacts when I touch you. It’s not faked, it’s a reflex, and I love it.",
+"I love your nose. I have grown to love it. For someone whose family is filled with pointed-nosed people, I actually love yours too.",
+"I love your boobs, very nice boobs with amazing nipples that call my name. Sometimes I get tempted to want to bite it so hard, but that will definitely hurt.",
+"I love the fact that you love to read.",
+"I love your vocabulary.",
+"I love the fact that you have not watched as many movies or animations as me. I would love to rewatch and watch a lot with you in the future.",
+"I love how you always encourage me to do better and be better, and how you always find a way to cheer me up when I am in a bad mood.",
+"I love your hustling spirit. It really motivates me to do better too.",
+"I love the fact that you are athletic.",
+"I love the fact that you love Chelsea, even though you cannot list 10 players from the team, lol.",
+"I love how flexible you are, like damn that’s hot.",
+"I love the shape of your body. Your curves remind me of that of a cat.",
+"I love the fact that you love your mom, despite everything.",
+"I love how you dress when you really want to.",
+"I love it when you gift me. It always means something to me.",
+"I love how intelligent you are. I love me a smart girllll.",
+"I love how street smart you are too. You no be JJC.",
+"I love the fact that you have common sense.",
+"I love your sense of humor. You can make jokes that are actually funny and you get my jokes too. I can tell smart jokes, so it’s cool that you can understand them.",
+"I love how real you are. You do not fake shit, if e no dey e no dey.",
+"I love the fact that you are not a dancing TikTok girl.",
+"I love how you take time to think before you talk.",
+"I love how you are able to read body language.",
+"I love how cautious you can be. A lot of people are too oblivious to their environment.",
+"I love the fact that you love children.",
+"I love the fact that you do not easily get sick.",
+"I love the fact that you do not have any hereditary disease or sickness.",
+"I love how fate made me see you on that volleyball court.",
+"I love how you have goals and are just living life on inshallah.",
+"I love your hair, brown hairrrrrrrrr.",
+"I love your stretch marks. So much sexy stuff around you, so greedy!",
+"I love the fact that you are Christian.",
+"I love your flat tummy.",
+"I love how you do not eat much. More for meeeeee. Yeah, that’s selfish of me.",
+"I love the fact that you are studying finance. I love it.",
+"I love how you handle money. It’s rubbing off on me.",
+"I love the fact that you do not have a male bestie. I hate that shit.",
+"I love how you keep trying in this relationship.",
+"I love how open-minded you can be to new things.",
+"I love how easy it is to talk to you. I enjoy sharing my thoughts with you.",
+"I love the fact that you can sew. I am jealous.",
+"I love how you think long term and not just short term. Instant gratification ain’t what life is all about.",
+"I love the fact that you make me so sure of you. I will always choose you and want you.",
+"I love how resourceful you can be.",
+"I love the fact that your own Yoruba is different. The stereotypes do not apply to you, like being dirty and noisy.",
+"I love the fact that you do not give up easily. If you want something, you try your best to get it.",
+"I love how you brush at least twice a day.",
+"I love how you are not entitled, unlike some other girls that expect things to happen. “If he wanted to, he would” is a shitty statement to me.",
+"I love how you respect me.",
+"I love that you love dogs.",
+"I love your empathy towards others.",
+"I love how transparent you are. I have no reason to overthink when I am with you.",
+"I love it when you share your thoughts with me.",
+"I love your intentionality to want to grow with me.",
+"I love how peaceful you are. I really do not like stress and I can relax with you.",
+"I love how much you make me happy. You are so constant in my life and I love you.",
+"I love your pricing skills. Omo, I would always want you to go shopping with me.",
+"I love your laugh. It makes me laugh too.",
+"I love your smile. It makes your eyes pop and you look so good.",
+"I love the way you carry yourself with so much dignity.",
+"I love your teeth. You actually have really good teeth.",
+"I love how you pick up languages easily.",
+"I love the way you kiss me, so passionately. Don’t stop.",
+"I love your jobs. Ahhhh, you wanna take my soul ba? My heart is not enough.",
+"I love it when you advise me. There is always something to take out of it. Of course we are still growing, but I respect your input so much.",
+"I love how you hug me when we sleep together, like I am your teddy. I am sorry if I am still adjusting to it, but I actually love it.",
+"I love how you remember things that I tell you.",
+"I love your fingers, so small and they fit so well when I hold your hands.",
+"I love your height, my little sweet girl.",
+"I love the fact that you are not fat. I am not that strong for a fat girl oh, lol. Besides, it is not healthy.",
+"I love how observant you are of your environment and people.",
+"I love how much you want to be involved in my life.",
+"I love the idea of spending my life with you.",
+"I love the thought of Mrs Rufus when you are called."
+];
+const grid=document.getElementById('grid');
+const liked=new Set();
+R.forEach((t,i)=>{
+  const n=i+1,c=document.createElement('article');
+  c.className='card'+(n>=99?' big':'');
+  const num=document.createElement('div');num.className='num';num.textContent=n;
+  const b=document.createElement('button');b.className='like';b.setAttribute('aria-label','Like reason '+n);b.textContent='♥';
+  b.onclick=()=>{b.classList.toggle('on');b.classList.contains('on')?liked.add(n):liked.delete(n)};
+  const p=document.createElement('p');p.textContent=t;
+  if(n<99)c.append(num,b,p);else c.append(num,p);
+  grid.append(c);
+});
+// reveal + progress
+let seen=0;const pc=document.getElementById('pc'),fill=document.getElementById('fill');
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);seen++;pc.textContent=seen+' / 100';fill.style.width=seen+'%'}})},{threshold:.15});
+document.querySelectorAll('.card').forEach(c=>io.observe(c));
+// floating hearts
+const H=document.getElementById('hearts');
+function float(){
+  const s=document.createElement('span');s.className='fl';s.textContent=Math.random()>.3?'♥':'✦';
+  s.style.left=Math.random()*100+'%';s.style.fontSize=(12+Math.random()*22)+'px';
+  const d=7+Math.random()*7;s.style.animationDuration=d+'s';H.append(s);setTimeout(()=>s.remove(),d*1000);
+}
+setInterval(float,700);for(let i=0;i<8;i++)setTimeout(float,i*200);
+// open
+document.getElementById('open').onclick=()=>{
+  document.getElementById('intro').style.display='none';
+  document.getElementById('main').style.display='block';window.scrollTo(0,0);
+};
+// burst
+function burst(x,y){
+  for(let i=0;i<26;i++){
+    const e=document.createElement('span');e.className='pop';e.textContent=['💙','🤍','✨','💫'][i%4];
+    e.style.left=x+'px';e.style.top=y+'px';
+    const a=Math.random()*Math.PI*2,r=80+Math.random()*160;
+    e.style.setProperty('--dx',Math.cos(a)*r+'px');e.style.setProperty('--dy',Math.sin(a)*r+'px');
+    document.body.append(e);setTimeout(()=>e.remove(),1400);
+  }
+}
+document.getElementById('burst').onclick=e=>{
+  burst(e.clientX,e.clientY);
+  document.getElementById('count').textContent=liked.size?('You smiled at '+liked.size+' of my reasons ♡'):'Go back and tap the hearts you love ♡';
+};
+// theme
+const root=document.documentElement,tb=document.getElementById('theme');
+tb.onclick=()=>{
+  const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+  root.dataset.theme=dark?'light':'dark';tb.textContent=dark?'🌙':'☀️';
+};
+</script>
+</body>
+</html>
